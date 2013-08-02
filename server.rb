@@ -1,12 +1,16 @@
+require 'rubygems'
+require 'bundler/setup'
+require 'pry'
+
 require './connection'
 
 class Server
   def initialize(connection = Connection.new)
     @connection = connection
   end
-  
+
   def run
-    while true
+    loop do
       print '> '
       input = gets.chomp
       @connection.receive input
@@ -14,7 +18,7 @@ class Server
   end
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   server = Server.new
   server.run
 end

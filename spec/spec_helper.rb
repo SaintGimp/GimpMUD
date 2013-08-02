@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'bundler/setup'
+
 require_relative '../server'
 require_relative '../connection'
 

@@ -4,9 +4,8 @@ class LoggingConnection < Connection
   def initialize
     @log = []
   end
-  
+
   def send(text)
-    super text
     @log << text
   end
 end
