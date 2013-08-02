@@ -1,3 +1,5 @@
+require_relative '../connection'
+
 class LoggingConnection < Connection
   attr_reader :log
 

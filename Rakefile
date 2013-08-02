@@ -6,7 +6,7 @@ task :default => [:rubocop, :spec]
 desc 'Run RuboCop'
 Rubocop::RakeTask.new(:rubocop) do |task|
   # don't abort rake on failure
-  #task.fail_on_error = false
+  task.fail_on_error = false
 end
 
 desc 'Run specs'

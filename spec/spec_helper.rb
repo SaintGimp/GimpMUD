@@ -1,8 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
-
-require_relative '../server'
-require_relative '../connection'
+require 'rspec'
 
 require 'logging_connection'
 
