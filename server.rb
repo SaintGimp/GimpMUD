@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'pry'
 require 'pry-debugger'
+require 'pry-rescue'
 require 'pry-stack_explorer'
 
 require './world'
@@ -42,6 +43,8 @@ class Server
 end
 
 if __FILE__ == $PROGRAM_NAME
-  server = Server.new
-  server.run
+  Pry::rescue do  
+    server = Server.new
+    server.run
+  end
 end
