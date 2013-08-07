@@ -9,10 +9,12 @@ require './connection'
 
 class Server
   def initialize
+    names = %w(Alice Bob)
     (1..2).each do |i|
       connection = Connection.new
       connection.id = i
       World.add connection
+      connection.receive "login #{names[i - 1]}"
     end
   end
 

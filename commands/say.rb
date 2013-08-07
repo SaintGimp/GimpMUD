@@ -1,5 +1,11 @@
 module Commands
   class SayCommand
+    attr_reader :name
+
+    def initialize
+      @name = 'SAY'
+    end
+
     def try_to_handle(connection, input)
       if /^say\s+?(.*)$/i =~ input
         connection.send_output "You say, \"#{Regexp.last_match(1)}\""

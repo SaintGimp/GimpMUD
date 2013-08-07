@@ -2,6 +2,12 @@ require_relative '../player'
 
 module Commands
   class LoginCommand
+    attr_reader :name
+
+    def initialize
+      @name = 'LOGIN'
+    end
+
     def try_to_handle(connection, input)
       if /^login\s+?(\w*)$/i =~ input
         player = Player.new connection, Regexp.last_match(1)
