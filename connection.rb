@@ -1,19 +1,23 @@
+require './commands/say'
+require './command_parser'
+
 class Connection
-  def receive(data)
-    return nil if data.nil?
+  attr_reader :player
+  attr_accessor :id
 
-    input = data.strip
-    return nil if input.empty?
-
-    case input
-    when /^say\s+?(.*)$/i
-      send "You say, \"#{$1}\""
-    else
-      send "I don't understand that."
-    end
+  def initialize
+    @command_parser = CommandParser.new
   end
 
-  def send(text)
-    puts text
+  def receive(data)
+    @command_parser.parse self, data
+  end
+
+  def send_output(text)
+    puts "#{@id}: #{text}"
+  end
+
+  def attach_player(player)
+    @player = player
   end
 end

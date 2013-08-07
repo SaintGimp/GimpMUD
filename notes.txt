@@ -1,0 +1,10 @@
+http://stackoverflow.com/questions/3676274/how-to-get-all-class-names-in-namespace-in-ruby
+
+http://teensymud.kicks-ass.org/wiki/show/HomePage
+
+https://github.com/cpowell/ruby-entity-component-framework
+
+Debugging:
+http://www.alanmacdougall.com/blog/2012/06/08/interactive-debugging-with-pry/
+http://banisterfiend.wordpress.com/2012/02/14/the-pry-ecosystem/
+https://github.com/nixme/pry-debugger

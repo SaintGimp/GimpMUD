@@ -10,3 +10,9 @@ Documentation:
 
 AvoidPerlBackrefs:
   Enabled: false
+
+LineLength:
+  Max: 120
+
+TrivialAccessors:
+  Enabled: false
