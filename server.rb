@@ -43,7 +43,7 @@ class Server
 end
 
 if __FILE__ == $PROGRAM_NAME
-  Pry::rescue do  
+  Pry.rescue do
     server = Server.new
     server.run
   end
