@@ -1,7 +1,8 @@
 class CommandParser
   def initialize
     # TODO: do this only once
-    Dir["#{__dir__}/commands/*.rb"].each { |file| load file }
+    commands_directory = File.join(__dir__, '..', 'commands', '*.rb')
+    Dir[commands_directory].each { |file| require file }
     command_classes = Commands.constants.map(&Commands.method(:const_get)).grep(Class)
     @commands = command_classes.map { |commandClass| commandClass.new }
     @commands << self

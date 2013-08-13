@@ -5,8 +5,9 @@ require 'pry-debugger'
 require 'pry-rescue'
 require 'pry-stack_explorer'
 
-require './world'
-require './connection'
+require_relative 'lib/load_paths'
+require 'world'
+require 'connection'
 
 class Server
   def initialize

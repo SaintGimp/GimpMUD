@@ -1,4 +1,4 @@
-require_relative '../player'
+require 'player'
 
 module Commands
   class LoginCommand

@@ -2,10 +2,12 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rspec'
 
+require_relative '../lib/load_paths'
+
 require 'logging_connection'
 require 'custom_matchers'
 
-require_relative '../world'
+require 'world'
 
 def create_connection
   return LoggingConnection.new
