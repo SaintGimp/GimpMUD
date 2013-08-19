@@ -9,11 +9,13 @@ class Connection
   end
 
   def receive(data)
-    @command_parser.parse self, data
+    @command_parser.parse(self, data)
   end
 
-  def send_output(text)
-    puts "#{@id}: #{text}"
+  def send_output(*output)
+    output.flatten.each do |text|
+      puts "#{@id}: #{text}"
+    end
   end
 
   def attach_player(player)

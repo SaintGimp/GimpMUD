@@ -20,17 +20,17 @@ class CommandParser
       break if handled
     end
 
-    connection.send_output "I don't understand that." unless handled
+    connection.send_output("I don't understand that.") unless handled
   end
 
   def try_to_handle(connection, input)
     if /^help$/i =~ input
-      connection.send_output 'Available commands:'
+      connection.send_output('Available commands:')
 
       real_commands = @commands.reject { |command| command == self }
       real_commands.sort_by! { |command| command.name }
       real_commands.each do |command|
-        connection.send_output command.name
+        connection.send_output(command.name)
       end
       return true
     else

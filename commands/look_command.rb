@@ -11,7 +11,7 @@ module Commands
     def try_to_handle(connection, input)
       if /^look$/i =~ input
         event = Events::LookEvent.new(connection.player)
-        World.players.each { |listener| listener.handle_look_event event }
+        World.players.each { |listener| listener.handle_look_event(event) }
         return true
       else
         return false

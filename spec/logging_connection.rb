@@ -8,8 +8,8 @@ class LoggingConnection < Connection
     @log = []
   end
 
-  def send_output(text)
-    @log << text
+  def send_output(output)
+    @log.push(*output)
   end
 
   def clear_log
