@@ -15,7 +15,7 @@ module World
   def build
     @objects.clear
 
-    add(Room.new(0, 'A forest'))
+    add(Room.new(0, 'A forest', 'The verdant trees tower above you.'))
   end
 end
 

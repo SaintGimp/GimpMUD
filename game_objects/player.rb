@@ -21,13 +21,15 @@ class Player
 
   def handle_look_event(event)
     if event.actor == self
-      send_output @container.name
+      send_output @container.full_description
     else
       send_output "#{event.actor.name} looks around."
     end
   end
 
-  def send_output(text)
-    connection.send_output text
+  def send_output(*output)
+    output.flatten.each do |text|
+      connection.send_output text
+    end
   end
 end
