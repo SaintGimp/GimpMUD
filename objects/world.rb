@@ -3,12 +3,6 @@ module World
 
   module_function
 
-  # We need this to reset everything between specs.  Using World as a
-  # global singleton is probably a mistake but we'll run with it for now.
-  def reset
-    @objects.clear
-  end
-
   def objects
     return @objects
   end

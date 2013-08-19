@@ -44,6 +44,11 @@ class Server
 end
 
 if __FILE__ == $PROGRAM_NAME
+  Signal.trap('INT') do
+    print "\n"
+    abort
+  end
+
   Pry.rescue do
     server = Server.new
     server.run

@@ -9,9 +9,16 @@ require 'custom_matchers'
 
 require 'world'
 
+module World
+  module_function
+  def build
+    @objects.clear
+  end
+end
+
 RSpec.configure do |config|
   config.before(:each) do
-    World.reset
+    World.build
   end
 end
 
