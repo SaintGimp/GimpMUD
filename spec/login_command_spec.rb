@@ -1,6 +1,8 @@
 describe 'LOGIN command' do
   it 'logs in the player' do
-    alice = login 'Alice'
+    connection = create_connection
+    connection.receive 'login Alice'
+    alice = World.find_player 'Alice'
 
     expect(World.objects).to include(be_player('Alice'))
     expect(alice.connection).to_not be_nil

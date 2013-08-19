@@ -9,6 +9,12 @@ require 'custom_matchers'
 
 require 'world'
 
+RSpec.configure do |config|
+  config.before(:each) do
+    World.reset
+  end
+end
+
 def create_connection
   return LoggingConnection.new
 end
@@ -16,5 +22,6 @@ end
 def login(name)
   connection = LoggingConnection.new
   connection.receive "login #{name}"
+  connection.clear_log
   return World.find_player name
 end

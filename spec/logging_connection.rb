@@ -11,4 +11,8 @@ class LoggingConnection < Connection
   def send_output(text)
     @log << text
   end
+
+  def clear_log
+    @log.clear
+  end
 end
