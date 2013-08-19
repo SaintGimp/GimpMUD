@@ -10,8 +10,8 @@ module Commands
 
     def try_to_handle(connection, input)
       if /^say\s+?(.*)$/i =~ input
-        speaker = connection.player
-        event = Events::SayEvent.new(speaker, Regexp.last_match(1))
+        actor = connection.player
+        event = Events::SayEvent.new(actor, Regexp.last_match(1))
         World.players.each { |listener| listener.handle_say_event event }
         return true
       else

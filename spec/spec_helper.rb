@@ -8,11 +8,14 @@ require 'logging_connection'
 require 'custom_matchers'
 
 require 'world'
+require 'room'
 
 module World
   module_function
   def build
     @objects.clear
+
+    add(Room.new(0, 'A forest'))
   end
 end
 

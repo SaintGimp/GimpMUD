@@ -7,11 +7,23 @@ class Player
     @name = name
   end
 
+  def enter(container)
+    @container = container
+  end
+
   def handle_say_event(event)
-    if event.speaker == self
+    if event.actor == self
       send_output "You say, \"#{event.text}\""
     else
-      send_output "#{event.speaker.name} says, \"#{event.text}\""
+      send_output "#{event.actor.name} says, \"#{event.text}\""
+    end
+  end
+
+  def handle_look_event(event)
+    if event.actor == self
+      send_output @container.name
+    else
+      send_output "#{event.actor.name} looks around."
     end
   end
 

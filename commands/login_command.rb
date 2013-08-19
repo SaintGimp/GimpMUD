@@ -1,3 +1,4 @@
+require 'world'
 require 'player'
 
 module Commands
@@ -13,6 +14,7 @@ module Commands
         player = Player.new connection, Regexp.last_match(1)
         connection.attach_player player
         World.add(player)
+        player.enter(World.find_room 0)
 
         connection.send_output "Logged in as #{player.name}"
         return true

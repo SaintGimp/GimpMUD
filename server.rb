@@ -10,16 +10,6 @@ require 'world'
 require 'connection'
 
 class Server
-  def initialize
-    names = %w(Alice Bob)
-    (1..2).each do |i|
-      connection = Connection.new
-      connection.id = i
-      World.add connection
-      connection.receive "login #{names[i - 1]}"
-    end
-  end
-
   def run
     loop do
       print '> '
@@ -43,6 +33,18 @@ class Server
   end
 end
 
+def build_world
+  World.add(Room.new(0, 'A forest'))
+
+  names = %w(Alice Bob)
+  (1..2).each do |i|
+    connection = Connection.new
+    connection.id = i
+    World.add connection
+    connection.receive "login #{names[i - 1]}"
+  end
+end
+
 if __FILE__ == $PROGRAM_NAME
   Signal.trap('INT') do
     print "\n"
@@ -50,6 +52,8 @@ if __FILE__ == $PROGRAM_NAME
   end
 
   Pry.rescue do
+    build_world
+
     server = Server.new
     server.run
   end
