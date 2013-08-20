@@ -11,7 +11,7 @@ module Commands
     def try_to_handle(connection, input)
       if /^look$/i =~ input
         event = Events::Looked.new(connection.player)
-        World.send_event(event)
+        World.enqueue_event(event)
         return true
       else
         return false

@@ -12,7 +12,7 @@ module Commands
       if /^say\s+?(.*)$/i =~ input
         actor = connection.player
         event = Events::Said.new(actor, Regexp.last_match(1))
-        World.send_event(event)
+        World.enqueue_event(event)
         return true
       else
         return false

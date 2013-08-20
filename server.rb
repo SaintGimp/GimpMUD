@@ -35,7 +35,7 @@ class Server
 end
 
 def build_world
-  World.add(Room.new(0, 'A forest'))
+  World.build_sample
 
   names = %w(Alice Bob)
   (1..2).each do |i|

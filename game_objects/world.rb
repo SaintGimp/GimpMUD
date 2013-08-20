@@ -1,9 +1,11 @@
+require 'components/event_bus'
 require 'game_objects/player'
 require 'game_objects/room'
 require 'lib/string_extensions'
 
 module World
   @objects = []
+  @event_bus = EventBus.new
 
   module_function
 
@@ -31,12 +33,18 @@ module World
     return @objects.select { |object| object.respond_to?(message) }
   end
 
-  def send_event(event)
-    unqualified_name = event.class.name.split('::').last
-    message_name = "handle_#{unqualified_name.to_snake_case}_event"
-    message = message_name.to_sym
-    find_objects_responding_to(message).each do |object|
-      object.send(message, event)
-    end
+  def enqueue_event(event)
+    @event_bus.enqueue(event)
+  end
+
+  def process_events
+    @event_bus.pump
+  end
+
+  def build_sample
+    @objects.clear
+    @event_bus = EventBus.new
+
+    add(Room.new(0, 'A forest', 'The verdant trees tower above you.'))
   end
 end

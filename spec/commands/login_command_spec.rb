@@ -14,10 +14,17 @@ describe 'LOGIN command' do
     connection = create_connection
     connection.receive('login Alice')
 
-    expect(connection.log).to include 'The verdant trees tower above you.'
+    expect(connection.log).to include 'A forest'
   end
 
-  it 'should not cause other players to receive a looked message' do
+  it 'shows the login message before the room message' do
+    connection = create_connection
+    connection.receive('login Alice')
+
+    expect(connection.log.find_index('Logged in as Alice')).to be < connection.log.find_index('A forest')
+  end
+
+  it 'should not send a looked message to other players' do
     alice = login('Alice')
     connection = create_connection
     connection.receive('login Bob')

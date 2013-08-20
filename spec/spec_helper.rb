@@ -10,18 +10,9 @@ require 'custom_matchers'
 require 'game_objects/world'
 require 'game_objects/room'
 
-module World
-  module_function
-  def build
-    @objects.clear
-
-    add(Room.new(0, 'A forest', 'The verdant trees tower above you.'))
-  end
-end
-
 RSpec.configure do |config|
   config.before(:each) do
-    World.build
+    World.build_sample
   end
 end
 

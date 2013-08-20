@@ -4,7 +4,7 @@ describe 'Command processing' do
   it 'informs the user if the command is unknown' do
     alice = login('Alice')
     alice.connection.receive('blahblahblah')
-
+    World.process_events
     expect(alice.connection.log).to include match(/don't understand/)
   end
 

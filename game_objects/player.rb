@@ -12,7 +12,7 @@ class Player
   def enter(container)
     @container = container
 
-    World.send_event(Events::EnteredRoom.new(self, container))
+    World.enqueue_event(Events::EnteredRoom.new(self, container))
   end
 
   def send_output(output)
