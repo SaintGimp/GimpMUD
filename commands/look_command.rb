@@ -1,4 +1,4 @@
-require 'events/look_event'
+require 'events/looked'
 
 module Commands
   class LookCommand
@@ -10,8 +10,8 @@ module Commands
 
     def try_to_handle(connection, input)
       if /^look$/i =~ input
-        event = Events::LookEvent.new(connection.player)
-        World.players.each { |listener| listener.handle_look_event(event) }
+        event = Events::Looked.new(connection.player)
+        World.send_event(event)
         return true
       else
         return false

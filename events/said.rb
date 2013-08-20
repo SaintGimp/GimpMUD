@@ -1,5 +1,5 @@
 module Events
-  class SayEvent
+  class Said
     attr_reader :actor
     attr_reader :text
 

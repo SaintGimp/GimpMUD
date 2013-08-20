@@ -1,5 +1,5 @@
 module Events
-  class LookEvent
+  class Looked
     attr_reader :actor
 
     def initialize(actor)

@@ -19,7 +19,7 @@ class Player
     connection.send_output(output)
   end
 
-  def handle_say_event(event)
+  def handle_said_event(event)
     if event.actor == self
       send_output("You say, \"#{event.text}\"")
     else
@@ -27,7 +27,7 @@ class Player
     end
   end
 
-  def handle_look_event(event)
+  def handle_looked_event(event)
     if event.actor == self
       send_output(@container.full_description)
     else
