@@ -16,5 +16,15 @@ describe 'LOGIN command' do
 
     expect(connection.log).to include 'The verdant trees tower above you.'
   end
+
+  it 'should not cause other players to receive a looked message' do
+    alice = login('Alice')
+    connection = create_connection
+    connection.receive('login Bob')
+
+    # TODO: we need a better way to determine whether output was sent
+    # or not, not dependent on exact language.
+    expect(alice.connection.log).not_to include match(/looks around/i)
+  end
 end
 
