@@ -6,8 +6,9 @@ require 'pry-rescue'
 require 'pry-stack_explorer'
 
 require_relative 'lib/load_paths'
-require 'world'
-require 'connection'
+require 'lib/string_extensions'
+require 'game_objects/world'
+require 'components/connection'
 
 class Server
   def run

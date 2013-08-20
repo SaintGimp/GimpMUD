@@ -1,3 +1,5 @@
+require 'events/entered_room'
+
 class Player
   attr_reader :connection
   attr_reader :name
@@ -9,6 +11,12 @@ class Player
 
   def enter(container)
     @container = container
+
+    World.send_event(Events::EnteredRoom.new(self, container))
+  end
+
+  def send_output(output)
+    connection.send_output(output)
   end
 
   def handle_say_event(event)
@@ -27,7 +35,9 @@ class Player
     end
   end
 
-  def send_output(output)
-    connection.send_output(output)
+  def handle_entered_room_event(event)
+    if event.actor == self
+      send_output(@container.full_description)
+    end
   end
 end

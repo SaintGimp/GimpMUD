@@ -1,4 +1,4 @@
-require 'connection'
+require 'components/connection'
 
 describe 'Command processing' do
   it 'informs the user if the command is unknown' do

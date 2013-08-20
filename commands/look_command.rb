@@ -1,4 +1,4 @@
-require 'look_event'
+require 'events/look_event'
 
 module Commands
   class LookCommand

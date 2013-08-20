@@ -7,8 +7,8 @@ require_relative '../lib/load_paths'
 require 'logging_connection'
 require 'custom_matchers'
 
-require 'world'
-require 'room'
+require 'game_objects/world'
+require 'game_objects/room'
 
 module World
   module_function

@@ -1,5 +1,1 @@
-$LOAD_PATH << File.expand_path(File.join(__dir__, '..', 'commands'))
-$LOAD_PATH << File.expand_path(File.join(__dir__, '..', 'components'))
-$LOAD_PATH << File.expand_path(File.join(__dir__, '..', 'events'))
-$LOAD_PATH << File.expand_path(File.join(__dir__, '..', 'game_objects'))
-$LOAD_PATH << File.expand_path(File.join(__dir__))
+$LOAD_PATH << File.expand_path(File.join(__dir__, '..'))

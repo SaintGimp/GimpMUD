@@ -1,4 +1,4 @@
-require 'connection'
+require 'components/connection'
 
 class LoggingConnection < Connection
   attr_reader :log

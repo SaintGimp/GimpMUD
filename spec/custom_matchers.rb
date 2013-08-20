@@ -1,5 +1,5 @@
 require 'rspec/expectations'
-require 'player'
+require 'game_objects/player'
 
 RSpec::Matchers.define :be_player do |expected|
   match do |actual|

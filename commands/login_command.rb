@@ -1,5 +1,5 @@
-require 'world'
-require 'player'
+require 'game_objects/world'
+require 'game_objects/player'
 
 module Commands
   class LoginCommand

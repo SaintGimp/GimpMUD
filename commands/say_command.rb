@@ -1,4 +1,4 @@
-require 'say_event'
+require 'events/say_event'
 
 module Commands
   class SayCommand

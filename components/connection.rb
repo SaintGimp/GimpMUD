@@ -1,4 +1,4 @@
-require 'command_parser'
+require 'commands/command_parser'
 
 class Connection
   attr_reader :player
